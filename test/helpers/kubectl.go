@@ -876,6 +876,63 @@ func (kub *Kubectl) CiliumInstallVersion(dsPatchName, cmPatchName, versionTag st
 		_, err := os.Stat(versionedPath)
 		if err == nil {
 			return versionedPath
+		} else {
+			files, err := ioutil.ReadDir("../../..")
+			if err != nil {
+				log.Debugf("bad error for path %s: %s", filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv()), err)
+			}
+			for _, f := range files {
+				log.Debugf("Error for path %s: %s", f.Name(), err)
+			}
+			files, err = ioutil.ReadDir("../..")
+			if err != nil {
+				log.Debugf("bad error for path %s: %s", filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv()), err)
+			}
+			for _, f := range files {
+				log.Debugf("Error for path %s: %s", f.Name(), err)
+			}
+			files, err = ioutil.ReadDir("..")
+			if err != nil {
+				log.Debugf("bad error for path %s: %s", filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv()), err)
+			}
+			for _, f := range files {
+				log.Debugf("Error for path %s: %s", f.Name(), err)
+			}
+			files, err = ioutil.ReadDir(".")
+			if err != nil {
+				log.Debugf("bad error for path %s: %s", filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv()), err)
+			}
+			for _, f := range files {
+				log.Debugf("Error for path %s: %s", f.Name(), err)
+			}
+			files, err = ioutil.ReadDir(filepath.Join(BasePath))
+			if err != nil {
+				log.Debugf("bad error for path %s: %s", filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv()), err)
+			}
+			for _, f := range files {
+				log.Debugf("Error for path %s: %s", f.Name(), err)
+			}
+			files, err = ioutil.ReadDir(filepath.Join(BasePath, manifestsPath))
+			if err != nil {
+				log.Debugf("bad error for path %s: %s", filepath.Join(BasePath, manifestsPath), err)
+			}
+			for _, f := range files {
+				log.Debugf("Error for path %s: %s", f.Name(), err)
+			}
+			files, err = ioutil.ReadDir(filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv()))
+			if err != nil {
+				log.Debugf("bad error for path %s: %s", filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv()), err)
+			}
+			for _, f := range files {
+				log.Debugf("Error for path %s: %s", f.Name(), err)
+			}
+			files, err = ioutil.ReadDir(filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv(), versionTag))
+			if err != nil {
+				log.Debugf("bad error for path %s: %s", filepath.Join(BasePath, manifestsPath, GetCurrentK8SEnv()), err)
+			}
+			for _, f := range files {
+				log.Debugf("Error for path %s: %s", f.Name(), err)
+			}
 		}
 		return filepath.Join(BasePath, manifestsPath, filename)
 	}
